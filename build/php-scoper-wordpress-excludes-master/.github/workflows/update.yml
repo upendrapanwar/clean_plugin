@@ -1,0 +1,29 @@
+name: Automatic release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone
+      uses: actions/checkout@v2
+      
+    - name: Setup PHP 7.4
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        tools: composer
+    
+    - name: Setup Git
+      run: |
+        git config --global user.email "github-bot@snicco.io"
+        git config --global user.name "Snicco Bot"
+
+    - name: Run update script
+      run: ./update.sh

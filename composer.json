@@ -1,0 +1,19 @@
+{
+    "name": "dplugins/plain-classes-src",
+    "autoload": {
+        "psr-4": {
+            "Dplugins\\PlainClasses\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "league/plates": "^3.4",
+        "dplugins/edd-sl-plugin-updater": "^1.9"
+    }
+}

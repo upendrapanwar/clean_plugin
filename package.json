@@ -1,0 +1,48 @@
+{
+  "name": "dplugins-plain-classes",
+  "version": "1.0.0",
+  "description": "Simplified Classes for Oxygen Builder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakaloka/plain-classes-src.git"
+  },
+  "author": "Joshua Gugun Siagian <suabahasa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wakaloka/plain-classes-src/issues"
+  },
+  "homepage": "https://github.com/wakaloka/plain-classes-src#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "concurrently": "^7.1.0",
+    "cssnano": "^5.1.7",
+    "cssnano-preset-advanced": "^5.3.3",
+    "esbuild": "0.14.54",
+    "lodash.escape": "^4.0.1",
+    "lodash.unescape": "^4.0.1",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
+    "postcss-scss": "^4.0.3",
+    "tailwindcss": "^3.0.24"
+  },
+  "scripts": {
+    "watch:admin:css": "postcss ./assets/admin.css --output ./dist/admin.css --map --verbose --watch",
+    "watch:editor:css": "postcss ./assets/editor.scss --output ./dist/editor.css --map --verbose --watch",
+    "watch:editor:js": "esbuild ./assets/editor.js --outfile=dist/editor.js --bundle --sourcemap --watch",
+    "watch:iframe:js": "esbuild ./assets/iframe.js --outfile=dist/iframe.js --bundle --sourcemap --watch",
+    "watch": "concurrently yarn:watch:*",
+    "build:admin:css": "postcss ./assets/admin.css --output ./dist/admin.css --verbose",
+    "build:editor:css": "postcss ./assets/editor.scss --output ./dist/editor.css --verbose",
+    "build:editor:js": "esbuild ./assets/editor.js --outfile=dist/editor.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\"",
+    "build:iframe:js": "esbuild ./assets/iframe.js --outfile=dist/iframe.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\"",
+    "build": "concurrently yarn:build:*"
+  },
+  "browser": {
+    "path": "path-browserify"
+  },
+  "volta": {
+    "node": "16.17.0",
+    "yarn": "1.22.19"
+  }
+}
